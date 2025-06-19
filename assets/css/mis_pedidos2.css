@@ -1,0 +1,63 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.pedidos-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pedidos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pedido-card {
+  border: 1px solid #ddd;
+  border-left: 5px solid #007bff;
+  padding: 15px;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+
+.estado {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* Colores por estado */
+.estado.pendiente {
+  background-color: #ffeeba;
+  color: #856404;
+}
+.estado.en_produccion {
+  background-color: #cce5ff;
+  color: #004085;
+}
+.estado.enviado {
+  background-color: #d4edda;
+  color: #155724;
+}
+.estado.entregado {
+  background-color: #c3e6cb;
+  color: #155724;
+}
+.estado.cancelado {
+  background-color: #f8d7da;
+  color: #721c24;
+}

@@ -1,0 +1,89 @@
+/* Estilo general */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 2rem;
+  color: #333;
+}
+
+/* Contenedor principal */
+.pedidos-container {
+  max-width: 1200px;
+  margin: auto;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Título */
+.pedidos-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 28px;
+  color: #333;
+}
+
+/* Tabla de pedidos */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+thead {
+  background-color: #007bff;
+  color: white;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Zebra effect */
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Select y botón */
+select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+button {
+  padding: 6px 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Botón de volver */
+.volver {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  background-color: #6c757d;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.volver:hover {
+  background-color: #5a6268;
+}
