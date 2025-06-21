@@ -1,37 +1,86 @@
 body {
-  font-family: sans-serif;
-  background: #f0f4f8;
-  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
 }
 
 .pedidos-container {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 800px;
-  margin: auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+.pedidos-container h2 {
   text-align: center;
   color: #333;
+  margin-bottom: 30px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
-table thead {
-  background: #007bff;
-  color: white;
+thead {
+  background-color: #f0f0f0;
 }
 
-table th,
-table td {
-  padding: 10px;
-  border: 1px solid #ccc;
+th,
+td {
+  padding: 12px;
   text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Estados personalizados */
+td.estado {
+  font-weight: bold;
+  text-transform: capitalize;
+  border-radius: 5px;
+  padding: 6px;
+  display: inline-block;
+}
+
+.estado-pendiente {
+  color: #e67e22;
+  background-color: #fdf2e9;
+}
+
+.estado-en_produccion {
+  color: #2980b9;
+  background-color: #eaf2f8;
+}
+
+.estado-enviado {
+  color: #8e44ad;
+  background-color: #f5eef8;
+}
+
+.estado-entregado {
+  color: #27ae60;
+  background-color: #eafaf1;
+}
+
+.estado-cancelado {
+  color: #c0392b;
+  background-color: #fdecea;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  th,
+  td {
+    font-size: 13px;
+    padding: 8px;
+  }
 }

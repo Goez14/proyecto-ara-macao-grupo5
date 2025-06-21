@@ -1,3 +1,46 @@
+<?php
+session_start();
+require_once '../config/database.php';
+
+$error = "";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+  $correo = trim($_POST['correo']);
+  $password = $_POST['password'];
+
+  // Validaciones
+  if (empty($correo) || empty($password)) {
+    $error = "Todos los campos son obligatorios.";
+  } elseif (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+    $error = "Correo electrónico no válido.";
+  } else {
+    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE correo = ?");
+    $stmt->execute([$correo]);
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($usuario && password_verify($password, $usuario['password'])) {
+      $_SESSION['usuario'] = $usuario;
+
+      switch ($usuario['rol']) {
+        case 'admin':
+          header("Location: ../views/admin/admin.php");
+          exit;
+        case 'cliente':
+          header("Location: ../views/usuario/perfil/cliente.php");
+          exit;
+        case 'empleado':
+          header("Location: ../views/usuario/empleado.php");
+          exit;
+        default:
+          $error = "Rol no reconocido.";
+      }
+    } else {
+      $error = "Correo o contraseña incorrectos.";
+    }
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,7 +67,12 @@
       </div>
 
       <h2>Iniciar sesión</h2>
-      <form method="POST" action="login.php">
+
+      <?php if (!empty($error)): ?>
+        <p class="error" style="color: red; text-align: center;"><?= htmlspecialchars($error) ?></p>
+      <?php endif; ?>
+
+      <form method="POST" action="">
         <div class="input-group">
           <input type="email" name="correo" placeholder="Correo electrónico" required>
         </div>
@@ -34,49 +82,12 @@
         </div>
         <button type="submit" name="login">Iniciar sesión</button>
       </form>
-      <a href="#" class="forgot-password">¿Has olvidado tu contraseña?</a>
+
+      <div class="link">
+        ¿No tienes cuenta? <a href="registro.php">Regístrate</a>
+      </div>
+
     </div>
   </div>
-
-<?php
-session_start();
-
-if (isset($_POST['login'])) {
-    require_once '../config/database.php';
-
-    $correo = $_POST['correo'];
-    $password = $_POST['password'];
-
-    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE correo = ?");
-    $stmt->execute([$correo]);
-    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($usuario && password_verify($password, $usuario['password'])) {
-        $_SESSION['usuario'] = $usuario;
-
-        switch ($usuario['rol']) {
-            case 'admin':
-                header("Location: ../views/admin/admin.php");
-                exit;
-           case 'cliente':
-                header("Location: ../views/usuario/perfil/cliente.php");
-                exit;
-
-            case 'empleado':
-                header("Location: ../views/usuario/empleado.php");
-                exit;
-            default:
-                echo "<p style='text-align:center;color:red;'>Rol no reconocido.</p>";
-                exit;
-        }
-    } else {
-        echo "<p style='text-align:center;color:red;'>Correo o contraseña incorrectos.</p>";
-    }
-}
-?>
 </body>
 </html>
-
-
-
-

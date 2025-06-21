@@ -1,0 +1,106 @@
+/* Estilo general */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #fceabb, #f8b500);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* Contenedor del carrito */
+.carrito-container {
+  background-color: #fff;
+  margin-top: 60px;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 1000px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Título */
+.carrito-container h2 {
+  text-align: center;
+  color: #d35400;
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+
+/* Tabla de productos */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f39c12;
+  color: white;
+  font-weight: bold;
+}
+
+td {
+  background-color: #fef9f3;
+  color: #333;
+}
+
+tr:hover td {
+  background-color: #fef1d1;
+}
+
+/* Total */
+.carrito-container h3 {
+  text-align: right;
+  color: #e67e22;
+  margin-top: 10px;
+  font-size: 1.5em;
+}
+
+/* Botón Finalizar Pedido */
+.btn {
+  display: block;
+  text-align: center;
+  background-color: #e67e22;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.btn:hover {
+  background-color: #d35400;
+}
+
+/* Mensaje si el carrito está vacío */
+.carrito-container p {
+  text-align: center;
+  font-size: 1.2em;
+  color: #555;
+}

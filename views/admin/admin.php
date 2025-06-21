@@ -14,7 +14,6 @@ $admin = $_SESSION['usuario'];
   <meta charset="UTF-8">
   <title>Panel de Administrador</title>
   <link rel="stylesheet" href="../../assets/css/dashboard_admin.css">
-   <link rel="stylesheet" href="../../assets/css/logs_admin.css"> <!-- si aplica -->
 
 
 </head>
@@ -27,7 +26,8 @@ $admin = $_SESSION['usuario'];
       <li><a href="usuarios.php">👥 Usuarios Registrados</a></li>
       <li><a href="../productos/personalizacion_admin.php">🎨 Ver Personalizaciones</a></li>
       <li><a href="../pedidos/gestionar_pedidos.php">📦 Gestionar Pedidos</a></li>
-      <li><a href="../logs/ver_logs.php">📊 Ver Logs</a></li>
+      <li><a href="subir_producto.php">📤 Subir Producto</a></li>
+      <li><a href="../soporte/ver_mensajes.php">📩 Ver Soporte</a></li>
       <li><a href="../../auth/logout.php">🚪 Cerrar Sesión</a></li>
     </ul>
   </aside>

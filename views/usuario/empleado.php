@@ -24,6 +24,8 @@ $empleado = $_SESSION['usuario'];
       <li><a href="perfil/perfil.php">👤 Mi Perfil</a></li>
       <li><a href="../pedidos/ver_pedidos.php">📦 Pedidos Pendientes</a></li>
       <li><a href="../productos/personalizacion_empleado.php">🧪 Ver Personalizaciones</a></li>
+      <li><a href="subir_producto.php">📤 Subir Producto</a></li>
+      <li><a href="../soporte/ver_mensajes.php">📩 Ver Soporte</a></li>
       <li><a href="../../auth/logout.php">🚪 Cerrar Sesión</a></li>
     </ul>
   </aside>

@@ -1,64 +1,109 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f1f5f8;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f4f4f4;
   margin: 0;
   padding: 20px;
 }
 
-h2 {
-  text-align: center;
-  color: #2c3e50;
-  margin-bottom: 20px;
+.container {
+  max-width: 1000px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
 }
 
-.productos-container {
-  max-width: 1200px;
-  margin: 0 auto;
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #3a3a3a;
+}
+
+.filtro-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.filtro-form select,
+.filtro-form button {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.filtro-form button {
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.filtro-form button:hover {
+  background-color: #4cae4c;
 }
 
 .productos-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
-  justify-content: center;
 }
 
 .producto {
-  background: #fff;
-  padding: 20px;
+  border: 1px solid #ddd;
+  padding: 15px;
   border-radius: 8px;
-  width: 250px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fafafa;
   text-align: center;
 }
 
 .producto img {
   width: 100%;
-  height: 150px;
+  max-height: 140px;
   object-fit: cover;
-  margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 .producto h4 {
   margin: 10px 0 5px;
-  color: #34495e;
 }
 
 .producto p {
-  font-size: 14px;
-  color: #555;
+  margin: 5px 0;
+}
+.producto-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  width: 200px;
+  margin: 10px;
+  background: #fff;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.producto button {
-  background-color: #2980b9;
+.producto-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.producto-card h3 {
+  margin: 10px 0 5px;
+}
+
+.btn-agregar {
+  background-color: #28a745;
   color: white;
-  padding: 10px 15px;
+  padding: 6px 12px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 10px;
 }
 
-.producto button:hover {
-  background-color: #3498db;
+.btn-agregar:hover {
+  background-color: #218838;
 }
