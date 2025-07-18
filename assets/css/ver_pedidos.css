@@ -1,4 +1,3 @@
-/* Estilo general */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f9f9f9;
@@ -7,7 +6,6 @@ body {
   color: #333;
 }
 
-/* Contenedor principal */
 .pedidos-container {
   max-width: 1200px;
   margin: auto;
@@ -17,7 +15,6 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Título */
 .pedidos-container h2 {
   text-align: center;
   margin-bottom: 2rem;
@@ -25,7 +22,6 @@ body {
   color: #333;
 }
 
-/* Tabla de pedidos */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -44,12 +40,10 @@ td {
   border-bottom: 1px solid #ddd;
 }
 
-/* Zebra effect */
 tbody tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-/* Select y botón */
 select {
   padding: 6px 10px;
   border-radius: 6px;
@@ -72,7 +66,6 @@ button:hover {
   background-color: #218838;
 }
 
-/* Botón de volver */
 .volver {
   display: inline-block;
   margin-top: 20px;

@@ -13,21 +13,18 @@ function init() {
   render.setSize(width, height);
   canvasDiv.appendChild(render.domElement);
 
-  // Luz principal
   const luz = new THREE.PointLight(0xffffff, 1);
   luz.position.set(5, 5, 5);
   escena.add(luz);
 
-  // Luz ambiental (para eliminar sombras duras/negras)
   const luzAmbiente = new THREE.AmbientLight(0xffffff, 0.5);
   escena.add(luzAmbiente);
-  // Esfera
+
   const geometria = new THREE.SphereGeometry(1, 32, 32);
   const material = new THREE.MeshStandardMaterial({ color: 0xff0000 });
   esfera = new THREE.Mesh(geometria, material);
   escena.add(esfera);
 
-  // OrbitControls
   controls = new THREE.OrbitControls(camara, render.domElement);
   controls.enableDamping = true;
 
@@ -49,8 +46,6 @@ function cambiarTamano() {
   const tamano = parseFloat(document.getElementById("tamano").value);
   esfera.scale.set(tamano, tamano, tamano);
 }
-
-// ✅ NUEVO: Guardar cambios en PHP
 function guardarCambios() {
   const color = document.getElementById("color").value;
   const tamano = parseFloat(document.getElementById("tamano").value);
@@ -73,7 +68,6 @@ function guardarCambios() {
 
 window.addEventListener("DOMContentLoaded", init);
 
-// Obtener personalización guardada al cargar
 fetch("../../controllers/obtener_personalizacion.php")
   .then((response) => response.json())
   .then((data) => {
@@ -85,7 +79,6 @@ fetch("../../controllers/obtener_personalizacion.php")
     document.getElementById("color").value = data.color;
     document.getElementById("tamano").value = data.tamano;
 
-    // Aplicar color y tamaño a la esfera
     if (esfera) {
       esfera.material.color.set(data.color);
       esfera.scale.set(data.tamano, data.tamano, data.tamano);

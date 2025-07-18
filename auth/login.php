@@ -7,8 +7,6 @@ $error = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
   $correo = trim($_POST['correo']);
   $password = $_POST['password'];
-
-  // Validaciones
   if (empty($correo) || empty($password)) {
     $error = "Todos los campos son obligatorios.";
   } elseif (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
@@ -57,8 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 <body>
   <div class="container">
     <div class="form-container">
-
-      <!-- Logo con enlace + título -->
       <div class="logo-title">
         <a href="../index.php">
           <img src="../assets/img/logo.png" alt="Logo Ara Macao">

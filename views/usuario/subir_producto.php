@@ -78,6 +78,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <option value="azul">Azul</option>
         <option value="amarillo">Amarillo</option>
       </select>
+      <select name="tamano" required>
+        <option value="">Tamaño</option>
+        <option value="pequeño">Pequeño</option>
+        <option value="mediano">Mediano</option>
+        <option value="grande">Grande</option>
+      </select>
 
 
       <input type="file" name="imagen" accept="image/*" required>

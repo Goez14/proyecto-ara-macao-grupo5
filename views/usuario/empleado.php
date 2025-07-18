@@ -22,10 +22,11 @@ $empleado = $_SESSION['usuario'];
     <h3>👷 Empleado: <?= htmlspecialchars($empleado['nombre']) ?></h3>
     <ul>
       <li><a href="perfil/perfil.php">👤 Mi Perfil</a></li>
-      <li><a href="../pedidos/ver_pedidos.php">📦 Pedidos Pendientes</a></li>
+      <li><a href="../pedidos/gestionar_pedidos.php">📦 Gestionar Pedidos</a></li>
       <li><a href="../productos/personalizacion_empleado.php">🧪 Ver Personalizaciones</a></li>
       <li><a href="subir_producto.php">📤 Subir Producto</a></li>
       <li><a href="../soporte/ver_mensajes.php">📩 Ver Soporte</a></li>
+      <li><a href="../productos/gestionar_descuentos.php">🎯 Gestionar Descuentos</a></li>
       <li><a href="../../auth/logout.php">🚪 Cerrar Sesión</a></li>
     </ul>
   </aside>

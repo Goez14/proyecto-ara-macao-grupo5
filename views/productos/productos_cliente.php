@@ -81,11 +81,32 @@ $productos = $stmt->fetchAll();
     <div class="productos-grid">
       <?php if (count($productos) > 0): ?>
         <?php foreach ($productos as $producto): ?>
+          <?php
+            $producto_id = $producto['id'];
+            $stmtRating = $pdo->prepare("SELECT AVG(calificacion) as promedio, COUNT(*) as total FROM resenas WHERE producto_id = ?");
+            $stmtRating->execute([$producto_id]);
+            $rating = $stmtRating->fetch(PDO::FETCH_ASSOC);
+          ?>
           <div class="producto-card">
             <img src="../../assets/img/productos/<?= htmlspecialchars($producto['imagen']) ?>" alt="<?= htmlspecialchars($producto['nombre']) ?>">
-            <h3><strong><?= htmlspecialchars($producto['nombre']) ?></strong></h3>
+            
+            <h3>
+              <a href="detalle_producto.php?id=<?= $producto['id'] ?>">
+                <?= htmlspecialchars($producto['nombre']) ?>
+              </a>
+            </h3>
+            
             <p><?= htmlspecialchars($producto['descripcion']) ?></p>
             <p><strong>$<?= number_format($producto['precio'], 2) ?></strong></p>
+
+            <!-- Calificación promedio -->
+            <?php if ($rating['total'] > 0): ?>
+              <p>
+                ⭐ <?= number_format($rating['promedio'], 1) ?>/5 (<?= $rating['total'] ?> reseña<?= $rating['total'] > 1 ? 's' : '' ?>)
+              </p>
+            <?php else: ?>
+              <p>⭐ Sin calificaciones aún</p>
+            <?php endif; ?>
 
             <form action="../../controllers/carrito_controller.php" method="POST">
               <input type="hidden" name="producto_id" value="<?= $producto['id'] ?>">

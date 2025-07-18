@@ -11,7 +11,7 @@ require_once '../../../config/database.php';
 
 // Consulta para obtener productos más comprados
 $sql = "
-  SELECT p.nombre, p.imagen, p.precio, SUM(dp.cantidad) AS total_vendido
+  SELECT p.id, p.nombre, p.imagen, p.precio, SUM(dp.cantidad) AS total_vendido
   FROM detalle_pedido dp
   JOIN productos p ON dp.producto_id = p.id
   GROUP BY dp.producto_id
@@ -31,9 +31,17 @@ $productos_mas_comprados = $stmt->fetchAll();
   <link rel="stylesheet" href="../../../assets/css/dashboard_cliente.css">
 </head>
 <body>
-  <div class="dashboard-container">
+  <div class="panel-flotante">
     
+    <!-- Botón del carrito -->
+    <a href="../../productos/ver_carrito.php" class="btn-carrito" title="Ver Carrito">🛒</a>
+
+    <!-- Panel izquierdo -->
     <aside class="sidebar">
+      <div class="logo-container">
+      <img src="../../../assets/img/logo.png" alt="Logo Ara Macao">
+      </div>
+
       <h3>Bienvenido, <?= htmlspecialchars($usuario['nombre']) ?></h3>
       <ul>
         <li><a href="perfil.php">👤 Mi Perfil</a></li>
@@ -41,25 +49,28 @@ $productos_mas_comprados = $stmt->fetchAll();
         <li><a href="../../productos/personalizacion.php">🎨 Personalizar Gragea</a></li>
         <li><a href="../../pedidos/mis_pedidos.php">📦 Mis Pedidos</a></li>
         <li><a href="../../soporte/contacto.php">📩 Soporte</a></li>
-        <li><a href="../../productos/ver_carrito.php">🛒 Mi Carrito</a></li>
         <li><a href="../../../auth/logout.php">🚪 Cerrar Sesión</a></li>
       </ul>
     </aside>
 
+    <!-- Panel derecho -->
     <main class="contenido">
       <h2>Panel del Cliente</h2>
       <p>Aquí verás tus productos, pedidos, personalizaciones y más.</p>
 
       <section class="productos-populares">
-        <h3>🔥 Productos más comprados</h3>
+        <h3 class="titulo-mas-comprados">🔥 Productos más comprados</h3>
         <div class="productos-grid">
           <?php if (count($productos_mas_comprados) > 0): ?>
             <?php foreach ($productos_mas_comprados as $producto): ?>
               <div class="producto-popular">
                 <img src="../../../assets/img/productos/<?= htmlspecialchars($producto['imagen']) ?>" alt="<?= htmlspecialchars($producto['nombre']) ?>">
                 <h4><?= htmlspecialchars($producto['nombre']) ?></h4>
-                <p>$<?= number_format($producto['precio'], 2) ?></p>
+                <p><strong>$<?= number_format($producto['precio'], 2) ?></strong></p>
                 <p>🛍 Vendido: <?= $producto['total_vendido'] ?> veces</p>
+                <a class="ver-resenas-link" href="../../productos/detalle_producto.php?id=<?= $producto['id'] ?>">
+                  📋 Ver comentarios y reseñas
+                </a>
               </div>
             <?php endforeach; ?>
           <?php else: ?>
@@ -67,9 +78,7 @@ $productos_mas_comprados = $stmt->fetchAll();
           <?php endif; ?>
         </div>
       </section>
-
     </main>
   </div>
 </body>
-</html>
 

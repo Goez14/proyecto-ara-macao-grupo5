@@ -42,7 +42,6 @@ tbody tr:hover {
   background-color: #f9f9f9;
 }
 
-/* Estados personalizados */
 td.estado {
   font-weight: bold;
   text-transform: capitalize;
@@ -76,11 +75,21 @@ td.estado {
   background-color: #fdecea;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   th,
   td {
     font-size: 13px;
     padding: 8px;
   }
+}
+.btn-cancelar {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-cancelar:hover {
+  background-color: #c0392b;
 }

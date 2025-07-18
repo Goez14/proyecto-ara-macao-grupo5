@@ -40,7 +40,6 @@ h2 {
   display: inline-block;
 }
 
-/* Colores por estado */
 .estado.pendiente {
   background-color: #ffeeba;
   color: #856404;

@@ -1,0 +1,48 @@
+.detalle-container {
+  max-width: 900px;
+  margin: 30px auto;
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.volver {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #3498db;
+}
+
+.producto-detalle {
+  display: flex;
+  gap: 20px;
+}
+
+.producto-detalle img {
+  max-width: 300px;
+  border-radius: 8px;
+}
+
+.producto-detalle .info {
+  flex: 1;
+}
+
+.btn-agregar {
+  background-color: #2ecc71;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-agregar:hover {
+  background-color: #27ae60;
+}
+
+.comentario {
+  background-color: #f9f9f9;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.95em;
+}

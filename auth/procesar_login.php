@@ -6,24 +6,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $correo = trim($_POST['correo']);
   $password = $_POST['password'];
 
-  // Validar campos vacíos
   if (empty($correo) || empty($password)) {
     header("Location: login.php?error=Todos los campos son obligatorios");
     exit();
   }
 
-  // Validar formato del correo
   if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
     header("Location: login.php?error=Correo inválido");
     exit();
   }
-
-  // Buscar el usuario
   $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE correo = ?");
   $stmt->execute([$correo]);
   $usuario = $stmt->fetch();
 
-  // Verificar existencia y contraseña
   if ($usuario && password_verify($password, $usuario['password'])) {
     $_SESSION['usuario'] = [
       'id' => $usuario['id'],
@@ -32,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'correo' => $usuario['correo']
     ];
 
-    // Redireccionar según el rol
     switch ($usuario['rol']) {
       case 'admin':
         header("Location: ../views/admin/admin.php");

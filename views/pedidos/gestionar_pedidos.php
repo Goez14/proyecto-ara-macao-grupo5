@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['rol'] !== 'admin') {
+if (!isset($_SESSION['usuario']) || !in_array($_SESSION['usuario']['rol'], ['admin', 'empleado'])) {
   header('Location: ../../auth/login.php');
   exit();
 }
@@ -77,7 +77,7 @@ $pedidos = $pdo->query($sql)->fetchAll();
     <p>No hay pedidos registrados.</p>
   <?php endif; ?>
 
-  <a class="volver" href="../admin/admin.php">⬅ Volver al Dashboard</a>
+  <a class="volver" href="../<?= $_SESSION['usuario']['rol'] === 'admin' ? 'admin/admin.php' : 'empleado/empleado.php' ?>">⬅ Volver al Dashboard</a>
 </div>
 </body>
 </html>
